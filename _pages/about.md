@@ -10,8 +10,9 @@ this is a Test text to check change posibilities
 
 
 
-A data-driven personal website
+Imagine Flash
 ======
+This is a blog about imagine flash in created for a university seminar.
 
 
 Getting started
