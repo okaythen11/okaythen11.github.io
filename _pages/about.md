@@ -1,18 +1,18 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Imagine Flash"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
-this is a Test text to check change posibilities 
+This is a blog about imagine flash in created for a university seminar.
 
 
 
 Imagine Flash
 ======
-This is a blog about imagine flash in created for a university seminar.
+
 
 
 Getting started
