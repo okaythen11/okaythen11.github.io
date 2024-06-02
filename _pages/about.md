@@ -6,7 +6,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-This is a blog about imagine flash in created for a university seminar.
+This is a blog about imagine flash created for a university seminar.
 
 
 
