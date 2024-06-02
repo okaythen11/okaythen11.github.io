@@ -26,7 +26,6 @@ Diffusion models
 Existing Methods
 ------
 
-**Markdown generator**
 
 
 Model
