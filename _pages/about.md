@@ -15,24 +15,27 @@ Imagine Flash
 
 
 
-Getting started
+Introduction
 ======
 
 
-Site-wide configuration
+Diffusion models
 ------
 
 
-Create content & metadata
+Existing Methods
 ------
 
 **Markdown generator**
 
 
-How to edit your site's GitHub repository
+Model
+------
+
+comparison
 ------
 
 
 
-For more info
+Sources
 ------
