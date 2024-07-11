@@ -36,8 +36,11 @@ step distillation
 
 Model
 ------
-
-comparison
+Imagine flash utilzes 3 main methods for inference speed up there is backwards distillation, noise correction 
+and Shifted Reconstruction Loss​.
+Backwards distillation
+Distillation in machine learning generally refers to the utilization of a larger (teacher) model from which we try to "distill"
+knowledge in a smaller (student) model this generally helps to reduce the inference time and reduces memory requirements
 ------
 
 
