@@ -12,17 +12,19 @@ This is a blog about imagine flash created for a university seminar.
 
 Imagine Flash
 ======
-In may researchers at meta published imagine flash a new accleleration method for diffusion models.
+In may researchers at meta published imagine flash a new accleleration method for diffusion models, which have 
+seen a surge in popularity lately which is due to their performance in generative tasks such as image generation or resolution upscaling.
 Which aims to keep similar quality of the original but significalnty reduces the cost of inference.
+Why is it important to lower the (energy) cost of model inference you may ask a study conducted by Hugging Face and Carnegie Mellon University found that generating
+1 image can consume as much electricity as it takes to charge a phone.
 
-
-Introduction
+Why is reducing costs 
 ======
 
 
 Diffusion models
 ------
-Diffusion models are powerful generative models their impresive performace outshines other model architectures in areas such as image generation.
+Diffusion models are powerful generative models their impressive performace outshines other model architectures in areas such as image generation.
 While they are quite great at what they do there are some drawbacks namely in the effieceny department compared to other model-typer such as 
 GANs or VAEs. Diffusion models take longer to train often requiering more data, they have generally a higher demand for Hardware resources such as VRAM and 
 require more energy to produce resulsts.
@@ -53,3 +55,5 @@ Shifted reconstruction loss
 
 Sources
 ------
+https://arxiv.org/abs/2302.02398 https://www.semanticscholar.org/paper/Diffusion-Model-for-Generative-Image-Denoising-Xie-Yuan/6c08f74b8b41cb6f4c36816e81212dc9dbdfadac
+https://arxiv.org/pdf/2311.16863 energy consumption
