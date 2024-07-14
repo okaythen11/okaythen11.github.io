@@ -33,7 +33,8 @@ But how do they function? Diffusion models utilize 2 main principles the forward
 Existing Methods
 ------
 Among existing methods to speed up diffusion model inference there are Solvers and curvature rectification,Reduction of model size and the reduction of sampling steps then there is also 
-step distillation
+step distillation.
+Solvers and curvature rectification aim to linearize forward and backward diffusion during 
 
 
 Model
