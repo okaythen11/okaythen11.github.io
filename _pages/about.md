@@ -42,10 +42,15 @@ Model
 Imagine flash utilzes 3 main methods for inference speed up there is backwards distillation, noise correction 
 and shifted reconstruction loss​.
 
-Backwards distillation
+Backward distillation
 ------
 Distillation in machine learning generally refers to the utilization of a larger (teacher) model from which we try to "distill"
-knowledge in a smaller (student) model this generally helps to reduce the inference time and reduces memory requirements
+knowledge in a smaller (student) model this generally helps to reduce the inference time and reduces memory requirements while still utilizing the knowledge of the larger model.
+The paper about Imagine flash introduces a new distillation technique for diffusion models. WHich they coined "Backward distillation".
+
+Backward distillation aims to eliminate information leakage from the starting image to the denoising steps during the training phase. The paper suggest this since information leakage reduces
+inference performance which becomes especially aparent when only taking a few diffusion steps (small T), which is one of the main ways to decrease inference cost.
+
 b
 
 Noise correction
