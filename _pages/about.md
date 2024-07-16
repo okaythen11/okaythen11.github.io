@@ -50,6 +50,7 @@ The paper about Imagine flash introduces a new distillation technique for diffus
 
 Backward distillation aims to eliminate information leakage from the starting image to the denoising steps during the training phase. The paper suggest this since information leakage reduces
 inference performance which becomes especially aparent when only taking a few diffusion steps (small T), which is one of the main ways to decrease inference cost.
+  
 
 b
 
