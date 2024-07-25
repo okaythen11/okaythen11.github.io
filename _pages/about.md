@@ -33,6 +33,8 @@ But how do they function? Diffusion models utilize 2 main principles the forward
 ![illustration forward and backward diffusion process](/images/DiffusionProcessTraining.png)
 ![inference diffusion](/images/inference%20diffusion.png)
 
+
+
 Existing Methods
 ------
 Among existing methods to speed up diffusion model inference there are Solvers and curvature rectification,Reduction of model size and the reduction of sampling steps or 
@@ -46,17 +48,21 @@ To really scale a diffusion for even faster interference and even real time appl
 
 Model
 ------
-Imagine flash utilzes 3 main methods for inference speed up there is backwards distillation, noise correction 
-and shifted reconstruction loss​.
+Imagine flash utilzes 3 main methods for inference speed up there is backwards distillation, shifted reconstruction loss and 
+noise correction.
+
 
 Backward distillation
 ------
 Distillation in machine learning generally refers to the utilization of a larger (teacher) model from which we try to "distill"
 knowledge in a smaller (student) model this generally helps to reduce the inference time and reduces memory requirements while still utilizing the knowledge of the larger model.
-The paper about Imagine flash introduces a new distillation technique for diffusion models. WHich they coined "Backward distillation".
+The paper about Imagine flash introduces a new distillation technique for diffusion models. Which they coined "Backward distillation".
 
 Backward distillation aims to eliminate information leakage from the starting image to the denoising steps during the training phase. The paper suggest this since information leakage reduces
 inference performance which becomes especially aparent when only taking a few diffusion steps (small T), which is one of the main ways to decrease inference cost.
+
+To eliminate the information leakage we simulate the inference process during the training phase we achieve this by letting the student model predict the value of xt instead of using the xt that was calculated during the forward diffusion, in doing so we can be sure that none of the original signal x0 is included in our sample xt. This is also the case during the inference process since there is no x0 to source data from. 
+[Backward diffusion](/images/backwardDiffusion.png) 
   
 
 b
