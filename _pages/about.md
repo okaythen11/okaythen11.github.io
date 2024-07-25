@@ -57,9 +57,8 @@ When hearing the term distillation most people will probably think of the alcoho
 The oxford dictionary defines distillation as "the process or result of getting the essential meaning, ideas or information from something" this definition also applies in the context of machine learning where we try to take the knowledge from a (usually) larger teacher model and distill it into a (usally) smaller student model this is normally done by using the teacher model during the training of the student model. Ideally we are left with a smaller student model that is as accurate as the teacher but signifacntly smaller reducing both memory and performacne costs.
 Backward distillation
 ------
-Distillation in machine learning generally refers to the utilization of a larger (teacher) model from which we try to "distill"
-knowledge in a smaller (student) model this generally helps to reduce the inference time and reduces memory requirements while still utilizing the knowledge of the larger model.
-The paper about Imagine flash introduces a new distillation technique for diffusion models. Which they coined "Backward distillation".
+
+In the paper the researchers introduces a new distillation technique for diffusion models. Which they coined "Backward distillation".
 
 Backward distillation aims to eliminate information leakage from the starting image to the denoising steps during the training phase. The paper suggest this since information leakage reduces
 inference performance which becomes especially aparent when only taking a few diffusion steps (small T), which is one of the main ways to decrease inference cost.
