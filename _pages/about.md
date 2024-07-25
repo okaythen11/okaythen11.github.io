@@ -65,9 +65,9 @@ Backward distillation aims to eliminate information leakage from the starting im
 inference performance which becomes especially aparent when only taking a few diffusion steps (small T), which is one of the main ways to decrease inference cost.
 
 To eliminate the information leakage we simulate the inference process during the training phase we achieve this by letting the student model predict the value of xt instead of using the xt that was calculated during the forward diffusion, in doing so we can be sure that none of the original signal x0 is included in our sample xt. This is also the case during the inference process since there is no x0 to source data from. 
-[Backward diffusion](/images/backwardDiffusion.png) 
+![Backward diffusion](/images/backwardDiffusion.png) 
 The new gradients are computed as follows 
-[backward distillation](/images/gradientBackwardDiffusion.png)
+![backward distillation](/images/gradientBackwardDiffusion.png)
 
 
 
