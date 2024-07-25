@@ -51,6 +51,8 @@ Model
 Imagine flash utilzes 3 main methods for inference speed up there is backwards distillation, shifted reconstruction loss and 
 noise correction.
 
+Distillation 
+------
 
 Backward distillation
 ------
@@ -63,16 +65,26 @@ inference performance which becomes especially aparent when only taking a few di
 
 To eliminate the information leakage we simulate the inference process during the training phase we achieve this by letting the student model predict the value of xt instead of using the xt that was calculated during the forward diffusion, in doing so we can be sure that none of the original signal x0 is included in our sample xt. This is also the case during the inference process since there is no x0 to source data from. 
 [Backward diffusion](/images/backwardDiffusion.png) 
-  
+The new gradients are computed as follows 
+[backward distillation](/images/gradientBackwardDiffusion.png)
 
-b
 
-Noise correction
-------
+
+
 Shifted reconstruction loss
 ------
 
 
+
+Noise correction
+------
+To understand noise correction we have to remind ourselves that diffusion models work by predicting noise, so at every timestep xt the diffusion model predicts the noise at xT however there is only noise, therefore predicting noise at xT becomes trivial and we gain nothing of doing so. To remedy this we treat xT as a special case this gives us an additional bias term.
+[noise correction](/images/noise%20correction.png)
+
+Conclusion
+------
+Imagine flash introduces new Methods of applying existing concepts and doing so very succesfully its 3 methods especially SRL and backward diffusion provide a significant quality improvement over comparable methods. They also make significant speedup of diffusion models possible so much so that imagine flash can generate an image while the user is still typing out the prompt.
+While imagine flash is great we do have to consider that it will likely not be able too to surpass its teacher model making its performance very dependent on it.
 Sources
 ------
 https://arxiv.org/abs/2302.02398 https://www.semanticscholar.org/paper/Diffusion-Model-for-Generative-Image-Denoising-Xie-Yuan/6c08f74b8b41cb6f4c36816e81212dc9dbdfadac
