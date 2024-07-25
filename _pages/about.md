@@ -28,6 +28,7 @@ Diffusion models are powerful generative models their impressive performace outs
 While they are quite great at what they do there are some drawbacks namely in the effieceny department compared to other model-typer such as 
 GANs or VAEs. Diffusion models take longer to train often requiering more data, they have generally a higher demand for Hardware resources such as VRAM and 
 require more energy to produce resulsts.
+
 But how do they function? Diffusion models utilize 2 main principles the forward diffsuion and the backward diffusion during the forward diffusion we continusoulsy add uniformly distributed noise over T timesteps to our training image x0 till there is only noise left at xT. In the backwards diffusion we try to revert this whole process by substractiong noise from in T uniformly timesteps, here we try to achieve the same noise level as our corresponding point in time xt from the forward diffusion. This is supposed to teach the model how to denoise images or rather noise to create and image.
 ![illustration forward and backward diffusion process](/images/DiffusionProcessTraining.png)
 
