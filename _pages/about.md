@@ -31,12 +31,14 @@ require more energy to produce resulsts.
 
 But how do they function? Diffusion models utilize 2 main principles the forward diffsuion and the backward diffusion during the forward diffusion we continusoulsy add uniformly distributed noise over T timesteps to our training image x0 till there is only noise left at xT. In the backwards diffusion we try to revert this whole process by substractiong noise from in T uniformly timesteps, here we try to achieve the same noise level as our corresponding point in time xt from the forward diffusion. This is supposed to teach the model how to denoise images or rather noise to create and image.
 ![illustration forward and backward diffusion process](/images/DiffusionProcessTraining.png)
-
+![inference diffusion](/images/inference%20diffusion.png)
 Existing Methods
 ------
 Among existing methods to speed up diffusion model inference there are Solvers and curvature rectification,Reduction of model size and the reduction of sampling steps then there is also 
 step distillation.
-Solvers and curvature rectification aim to linearize diffusion during inference 
+Solvers and curvature rectification aim to linearize diffusion during inference, naturally when we try to predict the next step in inference or gradient descent having a more linear function will allow us to move further along to the desired value without accuracy loss.
+![linearization](/images/linearization.png)
+Reducing the model size will reduce the step cost making it cheaper 
 
 
 Model
