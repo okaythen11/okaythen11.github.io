@@ -55,6 +55,7 @@ Distillation
 ------
 When hearing the term distillation most people will probably think of the alcohol industry where a beverage with lower alcohol content gets distilled into a spirit with higher alcohol content but what exaclty does distillation mean and where does it fall in the context of machine learning?
 The oxford dictionary defines distillation as "the process or result of getting the essential meaning, ideas or information from something" this definition also applies in the context of machine learning where we try to take the knowledge from a (usually) larger teacher model and distill it into a (usally) smaller student model this is normally done by using the teacher model during the training of the student model. Ideally we are left with a smaller student model that is as accurate as the teacher but signifacntly smaller reducing both memory and performacne costs.
+
 Backward distillation
 ------
 
