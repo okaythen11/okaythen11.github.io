@@ -27,7 +27,7 @@ Diffusion models
 Diffusion models are powerful generative models their impressive performace outshines other model architectures in areas such as image generation.
 While they are quite great at what they do there are some drawbacks namely in the effieceny department compared to other model-typer such as 
 GANs or VAEs. Diffusion models take longer to train often requiering more data, they have generally a higher demand for Hardware resources such as VRAM and 
-require more energy to produce resulsts.
+require more energy to produce results.
 
 But how do they function? Diffusion models utilize 2 main principles the forward diffsuion and the backward diffusion during the forward diffusion we continusoulsy add uniformly distributed noise over T timesteps to our training image x0 till there is only noise left at xT. In the backwards diffusion we try to revert this whole process by substractiong noise from in T uniformly timesteps, here we try to achieve the same noise level as our corresponding point in time xt from the forward diffusion. This is supposed to teach the model how to denoise images or rather noise to create and image.
 ![illustration forward and backward diffusion process](/images/DiffusionProcessTraining.png)
@@ -37,7 +37,7 @@ But how do they function? Diffusion models utilize 2 main principles the forward
 
 Existing Methods
 ------
-Among existing methods to speed up diffusion model inference there are Solvers and curvature rectification,Reduction of model size and the reduction of sampling steps or 
+Among existing methods to speed up diffusion model inference there are [Solvers](https://arxiv.org/pdf/2302.04867) and curvature rectification,Reduction of model size and the reduction of sampling steps or 
 step distillation.
 Solvers and curvature rectification aim to linearize diffusion during inference, naturally when we try to predict the next step in inference or gradient descent having a more linear function will allow us to move further along to the desired value without accuracy loss.
 ![linearization](/images/linearization.png)
@@ -77,7 +77,8 @@ Shifted reconstruction loss
 In the iterative process of image generation through diffusion models generally the image composition and overall structure are created first with t closer to T and the details are added later on with t closer to 0. So ideally the student model will learn image composition and overall structure from the teacher when t is closer to T and the details when t is closer to 0.
 In order to achieve that the paper introduces Shifted reconstruciont loss (SRL). 
 
-SRL builds up on backward distillation 
+SRL builds up on backward distillation but additionally uses a function that noises the xt -> x0 prediction of the student model to the current t y is designed in a way so that the teacher prioritieses structure and compositon closer to T and details closer to 0, this noised output of the student is then given to the teacher to make a x0 prediction. The new gradients are computed as follows 
+![SRLgradient](/images/gradientSRL.png)  
 
 ![SRL](/images/SRL.png)
 
@@ -88,8 +89,8 @@ To understand noise correction we have to remind ourselves that diffusion models
 
 Comparison to state-of-the-art
 ------
-
-
+In the paper the researchers first compare Imagine flash to [Step Distillation](https://arxiv.org/pdf/2210.03142), [LCM](https://arxiv.org/pdf/2310.04378)(Latent Consitency Models)  and [ADD](https://arxiv.org/pdf/2311.17042)(Adversarial Diffusion Distillation)​
+![comparison other distillation methods](/images/comparisonOtherMethods.png)
 Conclusion
 ------
 Imagine flash introduces new Methods of applying existing concepts and doing so very succesfully its 3 methods especially SRL and backward diffusion provide a significant quality improvement over comparable methods. They also make significant speedup of diffusion models possible so much so that imagine flash can generate an image while the user is still typing out the prompt.
