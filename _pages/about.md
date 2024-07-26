@@ -103,6 +103,7 @@ Here we can see imagine flash compared to the other methods in terms of image qu
 Comparison other Models
 ------
 ![comparison other models](/images/comparisonOtherModels.png)
+In this picture we can see Imagine Flash, [Lightning-LDMXL](https://arxiv.org/pdf/2402.13929) and  [LDMXL-Turbo](https://arxiv.org/pdf/2311.17042) compared against their baselines the percentage indicates how good their performance was against the baseline. 
 
 Human evaluation 
 ------
