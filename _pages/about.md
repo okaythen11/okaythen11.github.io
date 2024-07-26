@@ -99,13 +99,17 @@ In the image we can see that Imagine Flash has the best performance out of all t
 Qualitative comparison
 ------
 ![comparison other distillation methods](/images/comparisonOtherMethods.png)
-
+Here we can see imagine flash compared to the other methods in terms of image quality we can observe that imagine flash has sharper images with more detail and vibrant colors.
 Comparison other Models
 ------
+![comparison other models](/images/comparisonOtherModels.png)
 
 Human evaluation 
 ------
-
+In the paper they also conducted a human evaluation using 1000 randomly sampled prompts and 5 human annotators.
+[human evaluation](/images/humanEvaluation.png)
+In the table we can observe the percentages of the annotators on whether they rate the quality of Imagine flash compared to the other listed public models superior, equal or inferior.
+We can observe that Imagine Flash seems to win out in most cases in terms of quality.
 Conclusion
 ------
 Imagine flash introduces new Methods of applying existing concepts and doing so very succesfully its 3 methods especially SRL and backward diffusion provide a significant quality improvement over comparable methods. They also make significant speedup of diffusion models possible so much so that imagine flash can generate an image while the user is still typing out the prompt.
