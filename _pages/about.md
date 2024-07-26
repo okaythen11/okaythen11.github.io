@@ -89,8 +89,9 @@ To understand noise correction we have to remind ourselves that diffusion models
 
 Comparison to state-of-the-art
 ------
-In the paper the researchers first compare Imagine flash to [Step Distillation](https://arxiv.org/pdf/2210.03142), [LCM](https://arxiv.org/pdf/2310.04378)(Latent Consitency Models)  and [ADD](https://arxiv.org/pdf/2311.17042)(Adversarial Diffusion Distillation)​ using [CLIP](https://arxiv.org/pdf/2104.08718)[FID](https://arxiv.org/pdf/1706.08500) and [compBench](https://arxiv.org/pdf/2307.06350)
+In the paper the researchers first compare Imagine flash to [Step Distillation](https://arxiv.org/pdf/2210.03142), [LCM](https://arxiv.org/pdf/2310.04378)(Latent Consitency Models)  and [ADD](https://arxiv.org/pdf/2311.17042)(Adversarial Diffusion Distillation)​ using [CLIP](https://arxiv.org/pdf/2104.08718)[FID](https://arxiv.org/pdf/1706.08500) and [CompBench](https://arxiv.org/pdf/2307.06350), FID and CLIP measures the image quality and adherence to the prompt, while CompBench is a Benchmark that measures several different image attributes.
 ![comparison other distillation methods](/images/comparisonOtherMethods.png)
+In the image we can see that Imagine Flash has the best performance out of all the methods listed but it noteably does not beat the baseline which makes sense when we consider that Imagine Flash distills the knowledge of the Teacher model and is therefore very unlikely to outperform it. 
 
 
 Conclusion
