@@ -100,6 +100,9 @@ Qualitative comparison
 ------
 ![comparison other distillation methods](/images/comparisonOtherMethods.png)
 
+Comparison other Models
+------
+
 Human evaluation 
 ------
 
