@@ -18,8 +18,8 @@ Which aims to keep similar quality of the original but significalnty reduces the
 Why is it important to lower the (energy) cost of model inference you may ask a study conducted by Hugging Face and Carnegie Mellon University found that generating
 1 image can consume as much electricity as it takes to charge a phone.
 
-Why is reducing costs 
-======
+
+
 
 
 Diffusion models
@@ -64,7 +64,7 @@ In the paper the researchers introduces a new distillation technique for diffusi
 Backward distillation aims to eliminate information leakage from the starting image to the denoising steps during the training phase. The paper suggest this since information leakage reduces
 inference performance which becomes especially aparent when only taking a few diffusion steps (small T), which is one of the main ways to decrease inference cost.
 
-To eliminate the information leakage we simulate the inference process during the training phase we achieve this by letting the student model predict the value of xt instead of using the xt that was calculated during the forward diffusion, in doing so we can be sure that none of the original signal x0 is included in our sample xt. This is also the case during the inference process since there is no x0 to source data from. 
+To eliminate the information leakage we simulate the inference process during the training phase we achieve this by letting the student model predict the value of x[t](Superscript) instead of using the xt that was calculated during the forward diffusion, in doing so we can be sure that none of the original signal x0 is included in our sample xt. This is also the case during the inference process since there is no x0 to source data from. 
 ![Backward diffusion](/images/backwardDiffusion.png) 
 The new gradients are computed as follows 
 ![backward distillation](/images/gradientBackwardDiffusion.png)
@@ -74,13 +74,21 @@ The new gradients are computed as follows
 
 Shifted reconstruction loss
 ------
+In the iterative process of image generation through diffusion models generally the image composition and overall structure are created first with t closer to T and the details are added later on with t closer to 0. So ideally the student model will learn image composition and overall structure from the teacher when t is closer to T and the details when t is closer to 0.
+In order to achieve that the paper introduces Shifted reconstruciont loss (SRL). 
 
+SRL builds up on backward distillation 
 
+![SRL](/images/SRL.png)
 
 Noise correction
 ------
 To understand noise correction we have to remind ourselves that diffusion models work by predicting noise, so at every timestep xt the diffusion model predicts the noise at xT however there is only noise, therefore predicting noise at xT becomes trivial and we gain nothing of doing so. To remedy this we treat xT as a special case this gives us an additional bias term.
-[noise correction](/images/noise%20correction.png)
+![noise correction](/images/noise%20correction.png)
+
+Comparison to state-of-the-art
+------
+
 
 Conclusion
 ------
