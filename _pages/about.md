@@ -49,7 +49,7 @@ To really scale a diffusion for even faster interference and even real time appl
 Model
 ------
 Imagine flash utilzes 3 main methods for inference speed up there is backwards distillation, shifted reconstruction loss and 
-noise correction.
+noise correction which are applied to a existing diffusion model in the paper they used [emu](https://ai.meta.com/research/publications/emu-enhancing-image-generation-models-using-photogenic-needles-in-a-haystack/) an image generation diffusion model by meta. Using these methods it can achieve enough of a speed up to allow for real time image inference while the quality is not much below the parent model.
 
 Distillation 
 ------
