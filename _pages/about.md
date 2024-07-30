@@ -12,7 +12,7 @@ This is a blog about imagine flash created for a university seminar.
 
 Imagine Flash
 ======
-In may researchers at meta published imagine flash a new accleleration [method](https://arxiv.org/pdf/2405.05224) for diffusion models, which have 
+In may researchers at meta published imagine flash a new accleleration [method](https://arxiv.org/pdf/2405.05224) for diffusion models called Imagine Flash [1]. Diffusion models have
 seen a surge in popularity lately which is due to their performance in generative tasks such as image generation or resolution upscaling.
 
 The method(s) aim to keep similar quality to the original model but with significalnty lower inference cost.
@@ -123,7 +123,7 @@ In the quantative ablation study we can clearly see that both backwards distilla
 ![Ablation](/images/ImagineFlashAblation.png)
 In the qualitative ablation we can again observe the impact of backward distillation and SRL on the quality of result, here backward distillation makes the images more crisps with better edges and finer details while SRL adds coherence and structure to the image. This
 time we can observe a difference with the usage of Noise correction albeit somewhat minor it becomes apparent that Noise correction leads to the colors becomeing more vibrant and saturated. 
-![AlbationQualitative](ImagineFlashAblationQualitative.png)
+![AlbationQualitative](/images/ImagineFlashAblationQualitative.png)
 
 
 
@@ -132,7 +132,12 @@ Conclusion
 Imagine flash introduces new Methods of applying existing concepts and doing so very succesfully its 3 methods especially SRL and backward diffusion provide a significant quality improvement over comparable methods. They also make significant speedup of diffusion models possible so much so that imagine flash can generate an image while the user is still typing out the prompt.
 While imagine flash is great we do have to consider that it will likely not be able too to surpass its teacher model making its performance very dependent on it.
 
-Sources
+Future work should focus on finding ways to further enhance the baseline diffsuion model thus uplifting the quality of the resulsts, further reduction of step cost and model size are also an option to make inference even faster and cheaper. 
+
+References
 ------
+[1]Imagine Flash: Imagine Flash: Accelerating Emu Diffusion Models with Backward Distillation Jonas Kohler, Albert Pumarola, Edgar Schönfeld, Artsiom Sanakoyeu,
+Roshan Sumbaly, Peter Vajda and Ali Thabet
+
 https://arxiv.org/abs/2302.02398 https://www.semanticscholar.org/paper/Diffusion-Model-for-Generative-Image-Denoising-Xie-Yuan/6c08f74b8b41cb6f4c36816e81212dc9dbdfadac
 https://arxiv.org/pdf/2311.16863 energy consumption
