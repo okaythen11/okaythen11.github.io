@@ -14,9 +14,11 @@ Imagine Flash
 ======
 In may researchers at meta published imagine flash a new accleleration method for diffusion models, which have 
 seen a surge in popularity lately which is due to their performance in generative tasks such as image generation or resolution upscaling.
-Which aims to keep similar quality of the original but significalnty reduces the cost of inference.
-Why is it important to lower the (energy) cost of model inference you may ask a study conducted by Hugging Face and Carnegie Mellon University found that generating
-1 image can consume as much electricity as it takes to charge a phone.
+
+The method(s) aim to keep similar quality to the original model but with significalnty lower inference cost.
+Why is lowering the (energy) cost of model inference important you may ask? Well a study conducted by Hugging Face and Carnegie Mellon University found that generating
+1 image can consume as much electricity as it takes to charge a phone this is unsutainable for large scale use especially when considering the iterative process (prompt adjustment) 
+people often employ when working with models which leads to several generations till the user is satisfied with the result.
 
 
 
