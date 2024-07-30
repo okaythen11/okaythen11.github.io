@@ -41,13 +41,15 @@ Inference (only forward diffusion)
 
 Existing Methods
 ------
-Among existing methods to speed up diffusion model inference there are [Solvers](https://arxiv.org/pdf/2302.04867)[6] and curvature rectification,Reduction of model size and the reduction of sampling steps or 
-step distillation.
+Among existing methods to speed up diffusion model inference there are [Solvers](https://arxiv.org/pdf/2302.04867)[6] and curvature rectification[7],Reduction of model size[8] and the reduction of sampling steps or 
+step distillation[9].
 Solvers and curvature rectification aim to linearize diffusion during inference, naturally when we try to predict the next step in inference or gradient descent having a more linear function will allow us to move further along to the desired value without accuracy loss.
 ![linearization](/images/linearization.png)
 Reducing the model size will reduce the step cost making it cheaper and faster to use, this is a very usefull improvement so long as the performance is similar to a larger model, to ensure this one could use model distillation about which we will learn more later in this blog.
 
-To really scale a diffusion for even faster interference and even real time applications just reducing the model size is not sufficient and we need further improvements such as reducing the sampling step count or step distillation 
+To really scale a diffusion for even faster interference and even real time applications just reducing the model size is not sufficient and we need further improvements such as step distillation. 
+
+Step distillation however shows serious quality degredation when reducing the sampling steps too much which warrants additional training enhancements such as ADD[10], UFO-GEN[11] or Lightning[12]  
 
 
 Model
@@ -143,6 +145,17 @@ References
 4. [Generative Adversarial Networks: An Overview Antonia Creswell, Tom White, Vincent Dumoulin, Kai Arulkumaran, Biswa Sengupta, Anil A Bharath](https://arxiv.org/abs/1710.07035)
 5. [Tutorial on Variational Autoencoders Carl Doersch](https://arxiv.org/abs/1606.05908)
 6. [UniPC: A Unified Predictor-Corrector Framework for Fast Sampling of Diffusion Models Wenliang Zhao, Lujia Bai, Yongming Rao, Jie Zhou, Jiwen Lu](https://arxiv.org/abs/2302.04867) (2023)
+7. [Albergo, M.S., Boffi, N.M., Vanden-Eijnden, E.: Stochastic interpolants: A unifying framework for flows and diffusions] (https://arxiv.org/abs/2303.08797) arXiv preprint (2023)
+8. [Li, Y., Wang, H., Jin, Q., Hu, J., Chemerys, P., Fu, Y., Wang, Y., Tulyakov, S.,
+Ren, J.: Snapfusion: Text-to-image diffusion model on mobile devices within two
+seconds](https://arxiv.org/abs/2306.00980) arXiv preprint (2023)
+9. [Meng, C., Rombach, R., Gao, R., Kingma, D., Ermon, S., Ho, J., Salimans, T.: On
+distillation of guided diffusion models](https://arxiv.org/abs/2210.03142) In: Proceedings of the IEEE/CVF Confeence on Computer Vision and Pattern Recognition. pp. 14297–14306 (2023)
+10. [Sauer, A., Lorenz, D., Blattmann, A., Rombach, R.: Adversarial diffusion 
+distillation] (https://arxiv.org/abs/2311.17042) arXiv preprint (2023)
+11. [Xu, Y., Zhao, Y., Xiao, Z., Hou, T.: Ufogen: You forward once large scale text-toimage generation via diffusion gans] arXiv preprint arXiv:2311.09257 (2023)
+12. 
+
 
 https://arxiv.org/abs/2302.02398 https://www.semanticscholar.org/paper/Diffusion-Model-for-Generative-Image-Denoising-Xie-Yuan/6c08f74b8b41cb6f4c36816e81212dc9dbdfadac
 https://arxiv.org/pdf/2311.16863 energy consumption
