@@ -16,9 +16,9 @@ In may researchers at meta published imagine flash a new accleleration [method](
 seen a surge in popularity lately which is due to their performance in generative tasks such as image generation or resolution upscaling.
 
 The method(s) aim to keep similar quality to the original model but with significantly lower inference cost.
-Why is lowering the (energy) cost of model inference important you may ask? Well a study conducted by Hugging Face and Carnegie Mellon University found that generating
+Why is lowering the (energy) cost of model inference important you may ask? Well a study[2] conducted by Hugging Face and Carnegie Mellon University found that generating
 1 image can consume as much electricity as it takes to charge a phone this is unsutainable for large scale use especially when considering the iterative process (prompt adjustment) 
-people often employ when working with models which leads to several generations till the user is satisfied with the result.
+people often employ when working with models several outputs are generated till the user is satisfied with the result.
 
 
 
@@ -26,9 +26,9 @@ people often employ when working with models which leads to several generations 
 
 Diffusion models
 ------
-Diffusion models are powerful generative models their impressive performace outshines other model architectures in areas such as image generation.
-While they are quite great at what they do there are some drawbacks namely in the effieceny department compared to other model-typer such as 
-GANs or VAEs. Diffusion models take longer to train often requiering more data, they have generally a higher demand for Hardware resources such as VRAM and 
+Diffusion models[3] are powerful generative models their impressive performace outshines other model architectures in areas such as image generation.
+While they are quite great at what they do there are some drawbacks namely in the effieceny department compared to other model-types such as 
+GANs[4] or VAEs[5]. Diffusion models take longer to train often requiering more data, they have generally a higher demand for Hardware resources such as VRAM and 
 require more energy to produce results.
 
 But how do they function? Diffusion models utilize 2 main principles the forward diffsuion and the backward diffusion during the forward diffusion we continusoulsy add uniformly distributed noise over T timesteps to our training image x0 till there is only noise left at xT. In the backwards diffusion we try to revert this whole process by substractiong noise from in T uniformly timesteps, here we try to achieve the same noise level as our corresponding point in time xt from the forward diffusion. This is supposed to teach the model how to denoise images or rather noise to create and image.
@@ -41,7 +41,7 @@ Inference (only forward diffusion)
 
 Existing Methods
 ------
-Among existing methods to speed up diffusion model inference there are [Solvers](https://arxiv.org/pdf/2302.04867) and curvature rectification,Reduction of model size and the reduction of sampling steps or 
+Among existing methods to speed up diffusion model inference there are [Solvers](https://arxiv.org/pdf/2302.04867)[6] and curvature rectification,Reduction of model size and the reduction of sampling steps or 
 step distillation.
 Solvers and curvature rectification aim to linearize diffusion during inference, naturally when we try to predict the next step in inference or gradient descent having a more linear function will allow us to move further along to the desired value without accuracy loss.
 ![linearization](/images/linearization.png)
@@ -136,8 +136,13 @@ Future work should focus on finding ways to further enhance the baseline diffsui
 
 References
 ------
-[1]Imagine Flash: Imagine Flash: Accelerating Emu Diffusion Models with Backward Distillation Jonas Kohler, Albert Pumarola, Edgar Schönfeld, Artsiom Sanakoyeu,
-Roshan Sumbaly, Peter Vajda and Ali Thabet
+1. [Imagine Flash: Accelerating Emu Diffusion Models with Backward Distillation, Jonas Kohler, Albert Pumarola, Edgar Schönfeld, Artsiom Sanakoyeu, Roshan Sumbaly, Peter Vajda and Ali Thabet](https://arxiv.org/abs/2405.05224) (2024)
+
+2. [Power Hungry Processing: Watts Driving the Cost of AI Deployment?, Alexandra Sasha Luccioni, Yacine Jernite, Emma Strubell](https://arxiv.org/abs/2311.16863) (2024)
+3. [Diffusion Models: A Comprehensive Survey of Methods and Applications, Ling Yang, Zhilong Zhang, Yang Song, Shenda Hong, Runsheng Xu, Yue Zhao, Wentao Zhang, Bin Cui, Ming-Hsuan Yang](https://arxiv.org/pdf/2209.00796)
+4. [Generative Adversarial Networks: An Overview Antonia Creswell, Tom White, Vincent Dumoulin, Kai Arulkumaran, Biswa Sengupta, Anil A Bharath](https://arxiv.org/abs/1710.07035)
+5. [Tutorial on Variational Autoencoders Carl Doersch](https://arxiv.org/abs/1606.05908)
+6. [UniPC: A Unified Predictor-Corrector Framework for Fast Sampling of Diffusion Models Wenliang Zhao, Lujia Bai, Yongming Rao, Jie Zhou, Jiwen Lu](https://arxiv.org/abs/2302.04867) (2023)
 
 https://arxiv.org/abs/2302.02398 https://www.semanticscholar.org/paper/Diffusion-Model-for-Generative-Image-Denoising-Xie-Yuan/6c08f74b8b41cb6f4c36816e81212dc9dbdfadac
 https://arxiv.org/pdf/2311.16863 energy consumption
