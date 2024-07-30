@@ -110,7 +110,7 @@ Here we can see imagine flash compared to the other methods in terms of image qu
 Comparison other Models
 ------
 ![comparison other models](/images/comparisonOtherModels.png)
-In this picture we can see Imagine Flash, [Lightning-LDMXL](https://arxiv.org/pdf/2402.13929) and  [LDMXL-Turbo](https://arxiv.org/pdf/2311.17042) compared against their baselines the percentage indicates how good their performance was against the baseline. 
+In this picture we can see Imagine Flash, [Lightning-LDMXL](https://arxiv.org/pdf/2402.13929)[17] and  [LDMXL-Turbo](https://arxiv.org/pdf/2311.17042)[18] compared against their baselines the percentage indicates how good their performance was against the baseline. 
 
 Human evaluation 
 ------
@@ -163,7 +163,10 @@ neural information processing systems  (2017)
 16. Huang, K., Sun, K., Xie, E., Li, Z., Liu, X.: T2i-compbench: A comprehensive
 benchmark for open-world compositional text-to-image generation. Advances in
 Neural Information Processing Systems (2024)
-17.
+17. Lin, S., Wang, A., Yang, X.: Sdxl-lightning: Progressive adversarial diffusion distillation. arXiv preprint arXiv:2402.13929 (2024)
+
+18. Sauer, A., Lorenz, D., Blattmann, A., Rombach, R.: Adversarial diffusion distillation. arXiv preprint arXiv:2311.17042 (2023)
+
 
 
 
