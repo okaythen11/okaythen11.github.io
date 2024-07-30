@@ -44,7 +44,8 @@ Existing Methods
 Among existing methods to speed up diffusion model inference there are [Solvers](https://arxiv.org/pdf/2302.04867)[6] and curvature rectification[7],Reduction of model size[8] and the reduction of sampling steps or 
 step distillation[9].
 Solvers and curvature rectification aim to linearize diffusion during inference, naturally when we try to predict the next step in inference or gradient descent having a more linear function will allow us to move further along to the desired value without accuracy loss.
-![linearization](/images/linearization.png)
+![linearization](/images/linearizationSmall.png)
+<img src="/images/linearization.png" alt="Description of Image 1" width="300" height="200">
 Reducing the model size will reduce the step cost making it cheaper and faster to use, this is a very usefull improvement so long as the performance is similar to a larger model, to ensure this one could use model distillation about which we will learn more later in this blog.
 
 To really scale a diffusion for even faster interference and even real time applications just reducing the model size is not sufficient and we need further improvements such as step distillation. 
@@ -170,5 +171,4 @@ Neural Information Processing Systems (2024)
 
 
 
-https://arxiv.org/abs/2302.02398 https://www.semanticscholar.org/paper/Diffusion-Model-for-Generative-Image-Denoising-Xie-Yuan/6c08f74b8b41cb6f4c36816e81212dc9dbdfadac
-https://arxiv.org/pdf/2311.16863 energy consumption
+
