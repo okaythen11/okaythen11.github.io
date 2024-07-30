@@ -98,7 +98,7 @@ Comparison to state-of-the-art
 
 Quantitative comparison
 ------
-In the paper the researchers first compare Imagine flash to Step Distillation[9], [LCM](https://arxiv.org/pdf/2310.04378)(Latent Consitency Models)  and [ADD](https://arxiv.org/pdf/2311.17042)[10](Adversarial Diffusion Distillation)​ using [CLIP](https://arxiv.org/pdf/2104.08718), [FID](https://arxiv.org/pdf/1706.08500) and [CompBench](https://arxiv.org/pdf/2307.06350), FID and CLIP measures the image quality and adherence to the prompt, while CompBench is a Benchmark that measures several different image attributes. All the methods were applied to [emu](https://ai.meta.com/research/publications/emu-enhancing-image-generation-models-using-photogenic-needles-in-a-haystack/) an image generation diffusion model.  
+In the paper the researchers first compare Imagine flash to Step Distillation[9], [LCM](https://arxiv.org/pdf/2310.04378)(Latent Consitency Models)  and [ADD](https://arxiv.org/pdf/2311.17042)[10](Adversarial Diffusion Distillation)​ using [CLIP](https://arxiv.org/pdf/2104.08718)[14], [FID](https://arxiv.org/pdf/1706.08500)[15] and [CompBench](https://arxiv.org/pdf/2307.06350)[16], FID and CLIP measures the image quality and adherence to the prompt, while CompBench is a Benchmark that measures several different image attributes. All the methods were applied to [emu](https://ai.meta.com/research/publications/emu-enhancing-image-generation-models-using-photogenic-needles-in-a-haystack/) an image generation diffusion model.  
 ![quantitative comparison other methods](/images/comparisonQuantitavieOthers.png)
 In the image we can see that Imagine Flash has the best performance out of all the methods listed but it noteably does not beat the baseline which makes sense when we consider that Imagine Flash distills the knowledge of the Teacher model and is therefore very unlikely to outperform it. 
 
@@ -156,6 +156,15 @@ distillation] (https://arxiv.org/abs/2311.17042) arXiv preprint (2023)
 11. [Xu, Y., Zhao, Y., Xiao, Z., Hou, T.: Ufogen: You forward once large scale text-toimage generation via diffusion gans] arXiv preprint arXiv:2311.09257 (2023)
 12. Lin, S., Wang, A., Yang, X.: Sdxl-lightning: Progressive adversarial diffusion distillation. arXiv preprint arXiv:2402.13929 (2024)
 13. https://ai.meta.com/research/publications/emu-enhancing-image-generation-models-using-photogenic-needles-in-a-haystack/
+14. [Hessel, J., Holtzman, A., Forbes, M., Bras, R.L., Choi, Y.: Clipscore: A referencefree evaluation metric for image captioning] arXiv preprint arXiv:2104.08718 (2021)
+15. Heusel, M., Ramsauer, H., Unterthiner, T., Nessler, B., Hochreiter, S.: Gans trained
+by a two time-scale update rule converge to a local nash equilibrium. Advances in
+neural information processing systems  (2017)
+16. Huang, K., Sun, K., Xie, E., Li, Z., Liu, X.: T2i-compbench: A comprehensive
+benchmark for open-world compositional text-to-image generation. Advances in
+Neural Information Processing Systems (2024)
+17.
+
 
 
 https://arxiv.org/abs/2302.02398 https://www.semanticscholar.org/paper/Diffusion-Model-for-Generative-Image-Denoising-Xie-Yuan/6c08f74b8b41cb6f4c36816e81212dc9dbdfadac
