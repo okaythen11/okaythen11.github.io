@@ -12,7 +12,7 @@ This is a blog about imagine flash created for a university seminar.
 
 Imagine Flash
 ======
-In may researchers at meta published imagine flash a new accleleration method for diffusion models, which have 
+In may researchers at meta published imagine flash a new accleleration [method](https://arxiv.org/pdf/2405.05224) for diffusion models, which have 
 seen a surge in popularity lately which is due to their performance in generative tasks such as image generation or resolution upscaling.
 
 The method(s) aim to keep similar quality to the original model but with significalnty lower inference cost.
