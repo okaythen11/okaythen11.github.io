@@ -87,7 +87,7 @@ In the iterative process of image generation through diffusion models generally 
 In order to achieve that the paper introduces Shifted reconstruciont loss (SRL). 
 
 SRL builds up on backward distillation but additionally uses a function that noises the xt -> x0 prediction of the student model to the current t y is designed in a way so that the teacher prioritieses structure and compositon closer to T and details closer to 0, this noised output of the student is then given to the teacher to make a x0 prediction.
-<img src="/images/SRL.png" alt="Description of Image 1" width="600" height="300">
+<img src="/images/SRL.png" alt="Description of Image 1" width="700" height="370">
 
  The new gradients are computed as follows 
  <img src="/images/gradientSRL.png" alt="Description of Image 1" width="500" height="170">
