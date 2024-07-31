@@ -46,6 +46,7 @@ step distillation[9].
 Solvers and curvature rectification aim to linearize diffusion during inference, naturally when we try to predict the next step in inference or gradient descent having a more linear function will allow us to move further along to the desired value without accuracy loss.
 
 <img src="/images/linearization.png" alt="Description of Image 1" width="600" height="300">
+
 Reducing the model size will reduce the step cost making it cheaper and faster to use, this is a very usefull improvement so long as the performance is similar to a larger model, to ensure this one could use model distillation about which we will learn more later in this blog.
 
 To really scale a diffusion for even faster interference and even real time applications just reducing the model size is not sufficient and we need further improvements such as step distillation. 
@@ -73,8 +74,10 @@ inference performance which becomes especially aparent when only taking a few di
 
 To eliminate the information leakage we simulate the inference process during the training phase we achieve this by letting the student model predict the value of x[t](Superscript) instead of using the xt that was calculated during the forward diffusion, in doing so we can be sure that none of the original signal x0 is included in our sample xt. This is also the case during the inference process since there is no x0 to source data from. 
 ![Backward diffusion](/images/backwardDiffusion.png) 
+
 The new gradients are computed as follows 
 ![backward distillation](/images/gradientBackwardDiffusionModified.png)
+![backward distillation](/images/gradientBackwardDiffusionModified2.png)
 
 
 
