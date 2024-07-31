@@ -92,7 +92,7 @@ SRL builds up on backward distillation but additionally uses a function that noi
  The new gradients are computed as follows 
  <img src="/images/gradientSRL.png" alt="Description of Image 1" width="500" height="170">
 
-The gradient is computed similar as in backwards distillation but now we use y(t) to noise the student prediction
+The gradients are computed similar as in backwards distillation but now we use y(t) to noise the student prediction
 
 
 
