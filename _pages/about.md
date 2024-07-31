@@ -84,10 +84,12 @@ Shifted reconstruction loss
 In the iterative process of image generation through diffusion models generally the image composition and overall structure are created first with t closer to T and the details are added later on with t closer to 0. So ideally the student model will learn image composition and overall structure from the teacher when t is closer to T and the details when t is closer to 0.
 In order to achieve that the paper introduces Shifted reconstruciont loss (SRL). 
 
-SRL builds up on backward distillation but additionally uses a function that noises the xt -> x0 prediction of the student model to the current t y is designed in a way so that the teacher prioritieses structure and compositon closer to T and details closer to 0, this noised output of the student is then given to the teacher to make a x0 prediction. The new gradients are computed as follows 
+SRL builds up on backward distillation but additionally uses a function that noises the xt -> x0 prediction of the student model to the current t y is designed in a way so that the teacher prioritieses structure and compositon closer to T and details closer to 0, this noised output of the student is then given to the teacher to make a x0 prediction.
+<img src="/images/SRL.png" alt="Description of Image 1" width="600" height="300">
+ The new gradients are computed as follows 
 ![SRLgradient](/images/gradientSRL.png)  
 
-![SRL](/images/SRL.png)
+
 
 Noise correction
 ------
