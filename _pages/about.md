@@ -45,7 +45,7 @@ Among existing methods to speed up diffusion model inference there are [Solvers]
 step distillation[9].
 Solvers and curvature rectification aim to linearize diffusion during inference, naturally when we try to predict the next step in inference or gradient descent having a more linear function will allow us to move further along to the desired value without accuracy loss.
 
-<img src="/images/linearization.png" alt="Description of Image 1" width="600" height="300">
+<img src="/images/linearization.png" alt="Description of Image 1" width="500" height="250">
 
 Reducing the model size will reduce the step cost making it cheaper and faster to use, this is a very usefull improvement so long as the performance is similar to a larger model, to ensure this one could use model distillation about which we will learn more later in this blog.
 
