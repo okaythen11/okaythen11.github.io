@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Imagine Flash"
+title: 
 author_profile: false
 redirect_from: 
   - /about/
