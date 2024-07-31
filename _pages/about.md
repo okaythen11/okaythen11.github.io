@@ -91,6 +91,7 @@ SRL builds up on backward distillation but additionally uses a function that noi
 
  The new gradients are computed as follows 
  <img src="/images/gradientSRL.png" alt="Description of Image 1" width="600" height="200">
+
 The gradient is computed similar as in backwards distillation but now we use y(t) to noise the student prediction
 
 
@@ -107,7 +108,7 @@ Comparison to state-of-the-art
 Quantitative comparison
 ------
 In the paper the researchers first compare Imagine flash to Step Distillation[9], [LCM](https://arxiv.org/pdf/2310.04378)(Latent Consitency Models)  and [ADD](https://arxiv.org/pdf/2311.17042)[10](Adversarial Diffusion Distillation)​ using [CLIP](https://arxiv.org/pdf/2104.08718)[14], [FID](https://arxiv.org/pdf/1706.08500)[15] and [CompBench](https://arxiv.org/pdf/2307.06350)[16], FID and CLIP measures the image quality and adherence to the prompt, while CompBench is a Benchmark that measures several different image attributes. All the methods were applied to [emu](https://ai.meta.com/research/publications/emu-enhancing-image-generation-models-using-photogenic-needles-in-a-haystack/) an image generation diffusion model.  
-<img src="/images/comparisonQuantitavieOthers.png" alt="Description of Image 1" width="800" height="600">
+<img src="/images/comparisonQuantitavieOthers.png" alt="Description of Image 1" width="700" height="520">
 In the image we can see that Imagine Flash has the best performance out of all the methods listed but it noteably does not beat the baseline which makes sense when we consider that Imagine Flash distills the knowledge of the Teacher model and is therefore very unlikely to outperform it. 
 
 Qualitative comparison
