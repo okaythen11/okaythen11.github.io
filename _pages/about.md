@@ -76,7 +76,6 @@ To eliminate the information leakage we simulate the inference process during th
 ![Backward diffusion](/images/backwardDiffusion.png) 
 
 The new gradients are computed as follows 
-![backward distillation](/images/gradientBackwardDiffusionModified.png)
 ![backward distillation](/images/gradientBackwardDiffusionModified2.png)
 
 
@@ -99,7 +98,8 @@ The gradient is computed similar as in backwards distillation but now we use y(t
 Noise correction
 ------
 To understand noise correction we have to remind ourselves that diffusion models work by predicting noise, so at every timestep xt the diffusion model predicts the noise at xT however there is only noise, therefore predicting noise at xT becomes trivial and we gain nothing of doing so. To remedy this we treat xT as a special case this gives us an additional bias term.
-![noise correction](/images/noise%20correction.png)
+<img src="/images/noise%20correction.png" alt="Description of Image 1" width="600" height="200">
+
 
 Comparison to state-of-the-art
 ------
@@ -107,7 +107,7 @@ Comparison to state-of-the-art
 Quantitative comparison
 ------
 In the paper the researchers first compare Imagine flash to Step Distillation[9], [LCM](https://arxiv.org/pdf/2310.04378)(Latent Consitency Models)  and [ADD](https://arxiv.org/pdf/2311.17042)[10](Adversarial Diffusion Distillation)​ using [CLIP](https://arxiv.org/pdf/2104.08718)[14], [FID](https://arxiv.org/pdf/1706.08500)[15] and [CompBench](https://arxiv.org/pdf/2307.06350)[16], FID and CLIP measures the image quality and adherence to the prompt, while CompBench is a Benchmark that measures several different image attributes. All the methods were applied to [emu](https://ai.meta.com/research/publications/emu-enhancing-image-generation-models-using-photogenic-needles-in-a-haystack/) an image generation diffusion model.  
-![quantitative comparison other methods](/images/comparisonQuantitavieOthers.png)
+<img src="/images/comparisonQuantitavieOthers.png" alt="Description of Image 1" width="800" height="600">
 In the image we can see that Imagine Flash has the best performance out of all the methods listed but it noteably does not beat the baseline which makes sense when we consider that Imagine Flash distills the knowledge of the Teacher model and is therefore very unlikely to outperform it. 
 
 Qualitative comparison
@@ -117,7 +117,7 @@ Here we can see imagine flash compared to the other methods in terms of image qu
 
 Comparison other Models
 ------
-<img src="/images/comparisonOtherModels.png" alt="Description of Image 1" width="600" height="300">
+<img src="/images/comparisonOtherModels.png" alt="Description of Image 1" width="500" height="250">
 
 In this picture we can see Imagine Flash, [Lightning-LDMXL](https://arxiv.org/pdf/2402.13929)[17] and  [LDMXL-Turbo](https://arxiv.org/pdf/2311.17042)[18] compared against their baselines the percentage indicates how good their performance was against the baseline. 
 
@@ -131,7 +131,8 @@ We can observe that Imagine Flash seems to win out in most cases in terms of qua
 Ablation
 ------
 In the quantative ablation study we can clearly see that both backwards distillation and SRL have a strong positive impact on the quality of the resulst when regarding the FID amd CLIP score, while noise correction doesnt seem to have an impact at all.
-![Ablation](/images/ImagineFlashAblation.png)
+<img src="/images/ImagineFlashAblation.png" alt="Description of Image 1" width="500" height="250">
+
 In the qualitative ablation we can again observe the impact of backward distillation and SRL on the quality of result, here backward distillation makes the images more crisps with better edges and finer details while SRL adds coherence and structure to the image. This
 time we can observe a difference with the usage of Noise correction albeit somewhat minor it becomes apparent that Noise correction leads to the colors becomeing more vibrant and saturated. 
 ![AlbationQualitative](/images/ImagineFlashAblationQualitative.png)
