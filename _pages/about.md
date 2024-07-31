@@ -131,7 +131,7 @@ We can observe that Imagine Flash seems to win out in most cases in terms of qua
 Ablation
 ------
 In the quantative ablation study we can clearly see that both backwards distillation and SRL have a strong positive impact on the quality of the resulst when regarding the FID amd CLIP score, while noise correction doesnt seem to have an impact at all.
-<img src="/images/ImagineFlashAblation.png" alt="Description of Image 1" width="500" height="250">
+<img src="/images/ImagineFlashAblation.png" alt="Description of Image 1" width="400" height="200">
 
 In the qualitative ablation we can again observe the impact of backward distillation and SRL on the quality of result, here backward distillation makes the images more crisps with better edges and finer details while SRL adds coherence and structure to the image. This
 time we can observe a difference with the usage of Noise correction albeit somewhat minor it becomes apparent that Noise correction leads to the colors becomeing more vibrant and saturated. 
