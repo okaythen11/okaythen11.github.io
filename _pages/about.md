@@ -61,18 +61,18 @@ noise correction which are applied to a existing diffusion model in the paper th
 
 Distillation 
 ------
-When hearing the term distillation most people will probably think of the alcohol industry where a beverage with lower alcohol content gets distilled into a spirit with higher alcohol content but what exaclty does distillation mean and where does it fall in the context of machine learning?
-The oxford dictionary defines distillation as "the process or result of getting the essential meaning, ideas or information from something" this definition also applies in the context of machine learning where we try to take the knowledge from a (usually) larger teacher model and distill it into a (usally) smaller student model this is normally done by using the teacher model during the training of the student model. Ideally we are left with a smaller student model that is as accurate as the teacher but signifacntly smaller reducing both memory and performacne costs.
+When hearing the term distillation most people would probably think of the alcohol industry where a beverage with a lower alcohol content gets distilled into a spirit with a higher alcohol content. But what exaclty does distillation mean in the context of machine learning?
+The oxford dictionary defines distillation as "the process or result of getting the essential meaning, ideas or information from something" this definition also applies in the context of machine learning where we try to take the knowledge from a (usually) larger teacher model and distill it into a (usally) smaller student model. This is normally done by using the teacher model during the training of the student model. Ideally we are left with a smaller student model that is as accurate as the teacher but significantly smaller reducing both memory and performance costs.
 
 Backward distillation
 ------
 
-In the paper the researchers introduces a new distillation technique for diffusion models. Which they coined "Backward distillation".
+In the paper the researchers introduce a new distillation technique for diffusion models. Which they coined "Backward distillation".
 
 Backward distillation aims to eliminate information leakage from the starting image to the denoising steps during the training phase. The paper suggest this since information leakage reduces
-inference performance which becomes especially aparent when only taking a few diffusion steps (small T), which is one of the main ways to decrease inference cost.
+inference performance in terms of quality, this becomes especially apparent when only taking a few diffusion steps (small T). But since this is one of the main ways to cut costs we need to improve the quality.
 
-To eliminate the information leakage we simulate the inference process during the training phase we achieve this by letting the student model predict the value of x[t](Superscript) instead of using the xt that was calculated during the forward diffusion, in doing so we can be sure that none of the original signal x0 is included in our sample xt. This is also the case during the inference process since there is no x0 to source data from. 
+To eliminate the information leakage we simulate the inference process during the training phase. This is achieved by letting the student model predict the value of xt instead of using the xt that was calculated during the forward diffusion, in doing so we can be sure that none of the original signal of x0 (the orignial image) is included in our sample xt. This is also the case during the inference process since there is no x0 to source data from. 
 ![Backward diffusion](/images/backwardDiffusion.png) 
 
 The new gradients are computed as follows 
@@ -83,21 +83,22 @@ The new gradients are computed as follows
 
 Shifted reconstruction loss
 ------
-In the iterative process of image generation through diffusion models generally the image composition and overall structure are created first with t closer to T and the details are added later on with t closer to 0. So ideally the student model will learn image composition and overall structure from the teacher when t is closer to T and the details when t is closer to 0.
-In order to achieve that the paper introduces Shifted reconstruciont loss (SRL). 
+In the iterative process of image generation through diffusion models generally follows that the image composition and overall structure are created first with t closer to T and the details are added later on with t closer to 0. Therefore the student model will ideally take the image composition and overall structure from the teacher when t is closer to T and the details when t is closer to 0.
+In order to achieve this the paper introduces Shifted reconstruciont loss (SRL). 
 
-SRL builds up on backward distillation but additionally uses a function that noises the xt -> x0 prediction of the student model to the current t y is designed in a way so that the teacher prioritieses structure and compositon closer to T and details closer to 0, this noised output of the student is then given to the teacher to make a x0 prediction.
+SRL builds up on backward distillation but additionally uses a function that noises the x0 prediction of the student model to the current t. Y is designed so that the teacher prioritizes structure and compositon closer to T and details closer to 0, this noised output of the student is then given to the teacher to make a x0 prediction. In doing so the wanted information from the teacher is added to the students outputs.
 <img src="/images/SRL.png" alt="Description of Image 1" width="700" height="370">
 
- The new gradients are computed as follows 
+ The new gradients are then computed as follows 
  <img src="/images/gradientSRL.png" alt="Description of Image 1" width="500" height="170">
 
-The gradients are computed similar as in backwards distillation but now we use y(t) to noise the student prediction
+They are using the method from backwards distillation but now we additonally use y(t) to noise the student prediction
 
 
 
 Noise correction
 ------
+The last and perhaps least of the methods introduced is noise correction.
 To understand noise correction we have to remind ourselves that diffusion models work by predicting noise, so at every timestep xt the diffusion model predicts the noise at xT however there is only noise, therefore predicting noise at xT becomes trivial and we gain nothing of doing so. To remedy this we treat xT as a special case this gives us an additional bias term.
 <img src="/images/noise%20correction.png" alt="Description of Image 1" width="600" height="200">
 
@@ -109,7 +110,7 @@ Quantitative comparison
 ------
 In the paper the researchers first compare Imagine flash to Step Distillation[9], [LCM](https://arxiv.org/pdf/2310.04378)(Latent Consitency Models)  and [ADD](https://arxiv.org/pdf/2311.17042)[10](Adversarial Diffusion Distillation)​ using [CLIP](https://arxiv.org/pdf/2104.08718)[14], [FID](https://arxiv.org/pdf/1706.08500)[15] and [CompBench](https://arxiv.org/pdf/2307.06350)[16], FID and CLIP measures the image quality and adherence to the prompt, while CompBench is a Benchmark that measures several different image attributes. All the methods were applied to [emu](https://ai.meta.com/research/publications/emu-enhancing-image-generation-models-using-photogenic-needles-in-a-haystack/) an image generation diffusion model.  
 <img src="/images/comparisonQuantitavieOthers.png" alt="Description of Image 1" width="700" height="520">
-In the image we can see that Imagine Flash has the best performance out of all the methods listed but it noteably does not beat the baseline which makes sense when we consider that Imagine Flash distills the knowledge of the Teacher model and is therefore very unlikely to outperform it. 
+In the image we can see that Imagine Flash has the best performance out of all the methods listed but it noteably does not beat the baseline which makes sense considering that Imagine Flash distills the knowledge of the Teacher model and is therefore unlikely to outperform it. 
 
 Qualitative comparison
 ------
@@ -135,17 +136,17 @@ In the quantative ablation study we can clearly see that both backwards distilla
 <img src="/images/ImagineFlashAblation.png" alt="Description of Image 1" width="400" height="200">
 
 In the qualitative ablation we can again observe the impact of backward distillation and SRL on the quality of result, here backward distillation makes the images more crisps with better edges and finer details while SRL adds coherence and structure to the image. This
-time we can observe a difference with the usage of Noise correction albeit somewhat minor it becomes apparent that Noise correction leads to the colors becomeing more vibrant and saturated. 
+time we can observe a difference with the usage of Noise correction, albeit somewhat minor it becomes apparent that Noise correction leads to the colors becomeing more vibrant and saturated. 
 ![AlbationQualitative](/images/ImagineFlashAblationQualitative.png)
 
 
 
 Conclusion
 ------
-Imagine flash introduces new Methods of applying existing concepts and doing so very succesfully its 3 methods especially SRL and backward diffusion provide a significant quality improvement over comparable methods. They also make significant speedup of diffusion models possible so much so that imagine flash can generate an image while the user is still typing out the prompt.
-While imagine flash is great we do have to consider that it will likely not be able too to surpass its teacher model making its performance very dependent on it.
+Imagine flash introduces new Methods of existing concepts for diffusion model inference reduction, it does so very succesfully its 3 methods especially SRL and backward diffusion provide a significant quality improvement over comparable methods. They also make a significant speedup of diffusion models possible so much so that imagine flash can generate an image in real time ergo while the user is still typing out the prompt, allowing for large scale and practical deployment.
+While imagine flash is great we do have to consider that it will likely not be able too to surpass its teacher model making its performance depend on it.
 
-Future work should focus on finding ways to further enhance the baseline diffsuion model thus uplifting the quality of the resulsts, further reduction of step cost and model size are also an option to make inference even faster and cheaper. 
+Future work should focus on finding ways to further enhance the baseline diffsuion model thus uplifting the quality of the resulsts, further reduction of step cost and model size are also an option to make inference even faster and cheaper.  
 
 References
 ------
